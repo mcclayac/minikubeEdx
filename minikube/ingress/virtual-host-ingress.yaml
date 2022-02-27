@@ -12,7 +12,7 @@ spec:
               service:
                 name: webserver-blue-svc
                 port:
-                  number: 30164
+                  number: 80
             path: /
             pathType: ImplementationSpecific
     - host: green.example.com
@@ -22,6 +22,6 @@ spec:
               service:
                 name: webserver-green-svc
                 port:
-                  number: 32663
+                  number: 80
             path: /
             pathType: ImplementationSpecific
