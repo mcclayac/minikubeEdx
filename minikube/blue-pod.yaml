@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: blue-pod
+  labels:
+    app: blue-pod
+spec:
+  volumes:
+    - name: blue-volume
+      hostPath:
+        path: /home/docker/blue-volume
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: blue-volume
+    - name: debian
+      image: debian
+      volumeMounts:
+        - mountPath: /host-vol
+          name: blue-volume
+      command: ["/bin/sh", "-c", "echo Blue Pod > /host-vol/index.html ; sleep 3600"]
